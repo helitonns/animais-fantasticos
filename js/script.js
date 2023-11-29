@@ -1,30 +1,20 @@
-// const menu = document.querySelector(".menu");
+const tabMenu = document.querySelectorAll(".js-tabmenu li");
+const tabContent = document.querySelectorAll(".js-tabcontent section");
 
-// menu.classList.add("ativo", "azul");
-// console.log(menu.classList);
+if (tabMenu.length && tabContent.length) {
+    tabContent[0].classList.add("ativo");
 
-// menu.classList.remove("azul");
-// console.log(menu.classList);
+    function activeTab(index) {
+        tabContent.forEach((item) => {
+            item.classList.remove("ativo");
+        });
 
-// menu.classList.toggle("azul");
-// console.log(menu.classList);
+        tabContent[index].classList.add("ativo");
+    }
 
-// const animais = document.querySelector(".animais");
-// console.log(animais.attributes);
-
-// const img = document.querySelector("img");
-// console.log(img.getAttribute("src") + "  -  " + img.getAttribute("alt"));
-
-// img.setAttribute("descricao", "foto de raposa");
-// console.log(img.getAttribute("descricao"));
-
-// const section = document.querySelector(".animais");
-// console.log(section.clientHeight);
-// console.log(section.clientWidth);
-
-const h2 = document.querySelector("h2");
-const rect = h2.getBoundingClientRect();
-console.log(rect.x);
-console.log(rect.y);
-
-console.log(window.innerWidth);
+    tabMenu.forEach((itemMenu, index) => {
+        itemMenu.addEventListener("click", () => {
+            activeTab(index);
+        });
+    });
+}
