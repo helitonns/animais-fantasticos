@@ -149,6 +149,10 @@ body {
     color: #e54;
 }
 
+.faq-lista dt:hover {
+    cursor: pointer;
+}
+
 .faq-lista dt::before {
     content: "";
     display: inline-block;
@@ -255,4 +259,43 @@ body {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
+}
+
+.js .js-accordion dd {
+    display: none;
+}
+
+.js-accordion dt::after {
+    content: "⬎";
+}
+
+.js-accordion dt.ativo::after {
+    content: "⬏";
+}
+
+.js-accordion dd.ativo {
+    display: block;
+    animation: slideDown 1s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+
+.js .js-scroll {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+    transition: 0.3s;
+}
+
+.js .js-scroll.ativo {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
