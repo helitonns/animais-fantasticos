@@ -5,12 +5,14 @@ export default function initAnimacaoScroll() {
         const widownMetade = window.innerHeight * 0.6;
 
         function animarScroll() {
-            sections.forEach((item) => {
-                const sectionTop =
-                    item.getBoundingClientRect().top - widownMetade;
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const isSectionVisible = sectionTop - widownMetade < 0;
 
-                if (sectionTop < 0) {
-                    item.classList.add("ativo");
+                if (isSectionVisible) {
+                    section.classList.add("ativo");
+                } else if(section.classList.contains("ativo")) {
+                    section.classList.remove("ativo");
                 }
             });
         }
