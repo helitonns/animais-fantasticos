@@ -1,5 +1,5 @@
-const h1 = document.querySelector("div");
+function espera(texto) {
+    console.log(texto);
+}
 
-console.log(Object.prototype.toString.call(h1));
-
-console.log(h1.dataset);
+setTimeout(espera, 5000, "depois de 1 segundo");
